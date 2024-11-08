@@ -1,36 +1,51 @@
 <?php
+
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class FileModel extends Model
 {
-    
-    protected $table = 'uploaded_files'; // Nama tabel yang tepat
-    protected $primaryKey = 'id'; // Primary key tabel
-    protected $allowedFields = ['faculty', 'file_name', 'file_type', 'file_path', 'uploaded_at']; // Perhatikan bahwa kolom yang benar adalah 'file_name'
+    protected $table = 'files';
+    protected $allowedFields = ['faculty', 'department', 'filename', 'file_path', 'created_at'];
 
-    public function getAllFiles()
+    // Mendapatkan semua file yang diupload
+    public function getUploadedFiles()
     {
-        return $this->findAll();
-        
+        return $this->findAll(); // Mengambil semua data dari tabel
     }
 
-    public function addFile(array $data) // Tambahkan tipe data array
-    {
-        return $this->insert($data); // Menyimpan data file ke tabel uploaded_files
-    }
-
-    public function searchFiles($query)
-{
-    return $this->like('file_name', $query)
-                ->orLike('faculty', $query) // pastikan kolom 'faculty' ada
-                ->findAll();
-}
-
-
+    // Mendapatkan file berdasarkan fakultas
     public function getFilesByFaculty($faculty)
-{
-    return $this->where('file_path LIKE', "uploads/$faculty/%")->findAll();
-}
+    {
+        return $this->where('faculty', $faculty)->findAll(); // Mengambil data berdasarkan fakultas
+    }
+
+    // Mendapatkan file berdasarkan jurusan
+    public function getFilesByDepartment($department)
+    {
+        return $this->where('department', $department)->findAll(); // Mengambil data berdasarkan jurusan
+    }
+
+    // Metode pencarian file berdasarkan nama file
+    public function searchFiles($query, $department = null)
+    {
+        $this->like('filename', $query);
+
+        if ($department) {
+            $this->where('department', $department);
+        }
+
+        return $this->findAll();
+    }
+
+
+
+    // Mendapatkan file berdasarkan fakultas dan jurusan sekaligus
+    public function getFilesByFacultyAndDepartment($faculty, $department)
+    {
+        return $this->where('faculty', $faculty)
+            ->where('department', $department)
+            ->findAll(); // Mengambil data berdasarkan fakultas dan jurusan
+    }
 }

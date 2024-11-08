@@ -9,7 +9,7 @@
     /* Gaya Umum */
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f0f2f5;
+        background-color: #f4f6f9;
         margin: 0;
         padding: 0;
         color: #333;
@@ -18,51 +18,45 @@
     .container {
         max-width: 1200px;
         margin: 30px auto;
-        background: #fff;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    header {
-        text-align: center;
-        margin-bottom: 30px;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
 
     header h1 {
-        font-size: 24px;
+        font-size: 28px;
         color: #333;
+        margin-bottom: 8px;
     }
 
     nav {
-        background: #4a90e2;
-        padding: 10px 0;
-        border-radius: 8px;
+        background: #357ABD;
+        padding: 12px;
+        border-radius: 10px;
         margin-bottom: 30px;
     }
 
     nav ul {
         list-style: none;
         padding: 0;
-        text-align: center;
-    }
-
-    nav ul li {
-        display: inline-block;
-        margin: 0 15px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
     }
 
     nav ul li a {
         color: #fff;
         text-decoration: none;
-        padding: 8px 12px;
-        font-weight: 500;
+        padding: 8px 16px;
+        font-weight: bold;
         border-radius: 5px;
-        transition: background 0.3s ease;
+        transition: background 0.3s ease, transform 0.2s;
     }
 
     nav ul li a:hover {
-        background: #357ABD;
+        background: #4a90e2;
+        transform: scale(1.05);
     }
 
     .notification {
@@ -80,32 +74,35 @@
     form label {
         font-weight: bold;
         display: block;
-        margin-bottom: 10px;
+        margin-top: 20px;
         color: #555;
     }
 
+    select,
     input[type="file"] {
-        display: block;
-        margin-bottom: 10px;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
         width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
     }
 
     button {
-        background: #4a90e2;
+        background: #357ABD;
         color: white;
         border: none;
-        padding: 10px 20px;
+        padding: 12px 20px;
         border-radius: 5px;
-        font-size: 14px;
+        font-size: 16px;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: background 0.3s ease, transform 0.2s;
+        display: block;
+        margin-top: 20px;
     }
 
     button:hover {
-        background: #357ABD;
+        background: #4a90e2;
+        transform: scale(1.05);
     }
 
     /* Table Style */
@@ -114,27 +111,22 @@
         border-collapse: collapse;
         margin-top: 20px;
         overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    table,
-    th,
-    td {
-        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
 
     th,
     td {
-        padding: 15px;
+        padding: 12px 15px;
         text-align: left;
         color: #555;
+        font-size: 16px;
     }
 
     th {
-        background-color: #4a90e2;
+        background-color: #357ABD;
         color: white;
-        font-weight: 600;
+        font-weight: bold;
     }
 
     tbody tr:nth-child(even) {
@@ -143,30 +135,68 @@
 
     tbody tr:hover {
         background-color: #eaf3fd;
+        cursor: pointer;
     }
 
     .action-buttons a {
-        color: #4a90e2;
+        color: #357ABD;
         text-decoration: none;
-        font-weight: 500;
-        margin-right: 10px;
+        font-weight: bold;
+        margin-right: 12px;
         transition: color 0.3s ease;
     }
 
     .action-buttons a:hover {
-        color: #357ABD;
+        color: #4a90e2;
     }
 
     footer {
         text-align: center;
-        margin-top: 30px;
+        margin-top: 40px;
         color: #777;
         font-size: 14px;
     }
     </style>
+    <script>
+    // JavaScript untuk mengubah department (jurusan) berdasarkan fakultas yang dipilih
+    function updateDepartments() {
+        const faculty = document.getElementById("faculty").value;
+        const departmentSelect = document.getElementById("department");
+        departmentSelect.innerHTML = ""; // Kosongkan jurusan yang ada
+
+        let departments = [];
+
+        switch (faculty) {
+            case "FE":
+                departments = ["Manajemen", "Akuntansi", "Ilmu Ekonomi"];
+                break;
+            case "FHISIP":
+                departments = ["Sosiologi", "Psikologi", "Ilmu Politik"];
+                break;
+            case "FKIP":
+                departments = ["Pendidikan Bahasa Inggris", "Pendidikan Matematika", "Pendidikan Sejarah"];
+                break;
+            case "FST":
+                departments = ["Ilmu Komputer", "Matematika", "Statistika"];
+                break;
+            case "PPS":
+                departments = ["Ilmu Ekonomi Islam", "Manajemen Syariah", "Perbankan Syariah"];
+                break;
+            default:
+                departments = [];
+        }
+
+        departments.forEach(function(department) {
+            const option = document.createElement("option");
+            option.value = department;
+            option.textContent = department;
+            departmentSelect.appendChild(option);
+        });
+    }
+    </script>
 </head>
 
-<body>
+<body onload="updateDepartments()">
     <div class="container">
         <header>
             <h1>Admin Dashboard</h1>
@@ -192,71 +222,135 @@
             </div>
             <?php endif; ?>
 
-            <form action="<?= site_url('admin/uploadZip'); ?>" method="post" enctype="multipart/form-data">
-                 <label for="zip_file">Upload File ZIP:</label>
-                <input type="file" name="zip_file" id="zip_file" required>
-    
-                <label for="faculty">Pilih Fakultas:</label>
-                <select name="faculty" id="faculty" required>
+            <form action="<?= site_url('admin/uploadZip') ?>" method="post" enctype="multipart/form-data">
+                <label for="faculty">Fakultas:</label>
+                <select name="faculty" id="faculty" required onchange="updateDepartments()">
                     <option value="FE">Fakultas Ekonomi</option>
-                    <option value="FHISIP">Fakultas Hukum dan Ilmu Sosial</option>
+                    <option value="FHISIP">Fakultas Ilmu Sosial dan Ilmu Politik</option>
                     <option value="FKIP">Fakultas Keguruan dan Ilmu Pendidikan</option>
                     <option value="FST">Fakultas Sains dan Teknologi</option>
                     <option value="PPS">Pascasarjana</option>
                 </select>
-    
+
+                <label for="department">Jurusan:</label>
+                <select name="department" id="department" required>
+                    <!-- Options for department will be dynamically added here -->
+                </select>
+
+                <label for="zip_file">File ZIP:</label>
+                <input type="file" name="zip_file" id="zip_file" required>
+
                 <button type="submit">Upload</button>
             </form>
 
+            <h1>Uploaded Files</h1>
 
-            <?php if (session()->getFlashdata('message')): ?>
-            <div class="alert alert-success">
-                <?= session()->getFlashdata('message') ?>
-            </div>
-            <?php endif; ?>
-
-            <?php if (session()->getFlashdata('error')): ?>
-            <div class="alert alert-danger">
-                <?= session()->getFlashdata('error') ?>
-            </div>
-            <?php endif; ?>
-
-
-          
-
-
-            <h3>Uploaded Files</h3>
             <table>
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>File Name</th>
-                        <th>File Type</th>
-                        <th>Uploaded At</th>
+                        <th>Fakultas</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php if (!empty($uploadedFiles)): ?>
+                    <?php foreach ($uploadedFiles as $index => $file): ?>
+                    <tr>
+                        <td><?= $index + 1 ?></td>
+                        <td><?= $file['filename'] ?></td>
+                        <td><?= $file['faculty'] ?></td>
+                        <td class="action-buttons">
+                            <a href="<?= site_url('admin/deleteFile/' . $file['id']); ?>">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="4">Tidak ada file yang diupload.</td>
+                    </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+
+            <!-- Form untuk menambah Fakultas -->
+            <form action="<?= site_url('admin/addFaculty') ?>" method="post">
+                <label for="faculty_name">Nama Fakultas:</label>
+                <input type="text" name="faculty_name" id="faculty_name" required placeholder="Masukkan nama fakultas">
+
+                <button type="submit">Tambah Fakultas</button>
+            </form>
+
+            <!-- Form untuk menambah Jurusan -->
+            <form action="<?= site_url('admin/addDepartment') ?>" method="post">
+                <label for="department_name">Nama Jurusan:</label>
+                <input type="text" name="department_name" id="department_name" required
+                    placeholder="Masukkan nama jurusan">
+
+                <label for="faculty">Fakultas:</label>
+                <input type="text" name="faculty" id="faculty" required placeholder="Masukkan nama fakultas">
+
+                <button type="submit">Tambah Jurusan</button>
+            </form>
+
+            <h2>Daftar Fakultas</h2>
+            <!-- Daftar Fakultas yang sudah ada -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Fakultas</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($uploadedFiles as $index => $file): ?>
+                    <?php foreach ($faculties as $index => $faculty): ?>
                     <tr>
-                        <td><?= $index + 1 ?></td> <!-- Menampilkan ID berurutan -->
-                        <td><?= $file['file_name'] ?></td>
-                        <td><?= $file['file_type'] ?></td>
-                        <td><?= $file['uploaded_at'] ?></td>
-                        <td>
-                            <a href="<?= site_url('admin/deleteFile/' . $file['id']) ?>"
-                                onclick="return confirm('Apakah Anda yakin ingin menghapus file ini?');">Hapus</a>
+                        <td><?= $index + 1 ?></td>
+                        <td><?= $faculty['name'] ?></td>
+                        <td class="action-buttons">
+                            <a href="<?= site_url('admin/editFaculty/' . $faculty['id']); ?>">Edit</a>
+                            <a href="<?= site_url('admin/deleteFaculty/' . $faculty['id']); ?>">Delete</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
-
             </table>
+
+            <h2>Daftar Jurusan</h2>
+            <!-- Daftar Jurusan yang sudah ada -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Jurusan</th>
+                        <th>Fakultas</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($departments as $index => $department): ?>
+                    <tr>
+                        <td><?= $index + 1 ?></td>
+                        <td><?= $department['name'] ?></td>
+                        <td><?= $department['faculty'] ?></td>
+                        <td class="action-buttons">
+                            <a href="<?= site_url('admin/editDepartment/' . $department['id']); ?>">Edit</a>
+                            <a href="<?= site_url('admin/deleteDepartment/' . $department['id']); ?>">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+
 
         </main>
 
         <footer>
-            <p>&copy; <?= date('Y'); ?> Your Company. All rights reserved.</p>
+            <p>&copy; 2024 File Manager UT. All rights reserved.</p>
         </footer>
     </div>
 </body>

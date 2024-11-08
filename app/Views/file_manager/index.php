@@ -4,9 +4,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>File Manager Materi Pengayaan</title>
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/styles.css') ?>">
+    <style>
+    /* Tambahkan styling tambahan untuk tampilan */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: aquamarine;
+        margin: 0;
+        /* Menghapus margin default */
+        padding: 0;
+        /* Menghapus padding default */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        /* Menambahkan margin vertikal */
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+        max-width: 150px;
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    .welcome-text {
+        text-align: center;
+        margin-bottom: 20px;
+        background: whitesmoke;
+    }
+
+    h1,
+    h2 {
+        color: #333;
+        /* Warna teks untuk heading */
+    }
+
+    .faculty-list {
+        display: flex;
+        justify-content: space-between;
+        /* Mengubah untuk penggunaan yang lebih baik */
+        flex-wrap: wrap;
+        /* Membuat responsif pada layar kecil */
+        margin-top: 20px;
+    }
+
+    .faculty-list a {
+        flex: 1;
+        /* Mengatur lebar link fakultas agar fleksibel */
+        padding: 10px 15px;
+        color: #fff;
+        /* Mengubah warna teks link menjadi putih */
+        text-align: center;
+        /* Mengatur teks rata tengah */
+        text-decoration: none;
+        border-radius: 5px;
+
+        /* Warna latar belakang link */
+        margin: 5px;
+        /* Menambahkan jarak antar link */
+        transition: background-color 0.3s;
+        /* Efek transisi pada hover */
+    }
+
+    .faculty-list a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        /* Warna latar belakang saat hover */
+    }
+
+    .search-bar {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 10px;
+        width: 70%;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .search-bar button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #28a745;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        /* Efek transisi pada hover */
+    }
+
+    .search-bar button:hover {
+        background-color: #218838;
+    }
+
+    ul {
+        padding: 0;
+        /* Menghapus padding dari ul */
+        list-style-type: none;
+        /* Menghapus bullet points */
+    }
+
+    ul li {
+        padding: 5px 0;
+    }
+
+    ul li a {
+        text-decoration: none;
+        /* Menghapus underline dari link */
+        color: #007bff;
+        /* Warna link */
+        transition: color 0.3s;
+        /* Efek transisi pada hover */
+    }
+
+    ul li a:hover {
+        color: #0056b3;
+        /* Mengubah warna saat hover */
+    }
+
+    /* Styling untuk tabel daftar file */
+    table {
+        width: 100%;
+        /* Mengatur lebar tabel menjadi 100% dari kontainer */
+        border-collapse: collapse;
+        /* Menghapus jarak antara batas sel */
+        margin-top: 20px;
+        /* Margin atas untuk jarak dari elemen sebelumnya */
+    }
+
+    th,
+    td {
+        padding: 12px;
+        /* Memberikan padding di dalam sel */
+        text-align: left;
+        /* Mengatur teks rata kiri */
+        border-bottom: 1px solid #ddd;
+        /* Garis bawah untuk batas sel */
+    }
+
+    th {
+        background-color: #f2f2f2;
+        /* Warna latar belakang untuk header tabel */
+        font-weight: bold;
+        /* Menebalkan teks header */
+    }
+
+    tr:hover {
+        background-color: rgba(0, 115, 230, 0.1);
+        /* Warna latar belakang saat hover pada baris */
+    }
+    </style>
 </head>
 
 <body>
@@ -17,47 +172,34 @@
         <!-- Welcome Text -->
         <div class="welcome-text">
             <h1>Selamat Datang Di File Manager Materi Pengayaan Universitas Terbuka</h1>
-            <p>- Silahkan Memilih Materi Pengayaan berdasarkan fakultas atau gunakan Fitur Pencarian pada folder yang
-                telah dipilih kemudian cari nama file bahan ajar untuk memudahkan pencarian Materi Pengayaan.</p>
+            <p>Silahkan memilih materi pengayaan berdasarkan fakultas atau gunakan fitur pencarian untuk memudahkan
+                pencarian materi pengayaan.</p>
             <h2>Cara Mendownload:</h2>
             <ul>
-                <li>Silahkan Anda mendownload salah satu file dengan cara klik dua kali, untuk kemudian diarahkan ke
-                    halaman preview agar dapat di download.</li>
+                <li>Silahkan klik dua kali pada nama file untuk diarahkan ke halaman preview dan mengunduh materi
+                    tersebut.</li>
             </ul>
         </div>
 
-        <!-- Form Pencarian -->
-        <div class="search-bar">
-            <form method="GET" action="<?= site_url('/filemanager/search') ?>">
-                <input type="text" name="query" placeholder="Cari jurusan atau materi..." required>
-                <button type="submit">Cari</button>
-            </form>
+        <form action="<?= base_url('filemanager/search') ?>" method="get">
+            <input type="text" name="query" placeholder="Cari materi atau fakultas..." required>
+            <button type="submit">Cari</button>
+        </form>
 
-        </div>
-
-
-        <?php if (!empty($files)): ?>
-    <ul>
-        <?php foreach ($files as $file): ?>
-            <li>
-                <a href="<?= base_url($file['file_path']) ?>"><?= $file['filename'] ?></a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-<?php else: ?>
-    <p></p>
-<?php endif; ?>
 
 
         <!-- Daftar Fakultas -->
+        <h2>Pilih Fakultas</h2>
         <ul class="faculty-list">
             <li><a href="<?= site_url('/filemanager/faculty/FE') ?>">FE</a></li>
             <li><a href="<?= site_url('/filemanager/faculty/FHISIP') ?>">FHISIP</a></li>
             <li><a href="<?= site_url('/filemanager/faculty/FKIP') ?>">FKIP</a></li>
             <li><a href="<?= site_url('/filemanager/faculty/FST') ?>">FST</a></li>
             <li><a href="<?= site_url('/filemanager/faculty/PPS') ?>">PPS</a></li>
+
         </ul>
     </div>
+
 </body>
 
 </html>

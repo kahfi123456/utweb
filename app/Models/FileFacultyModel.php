@@ -8,7 +8,7 @@ class FileFacultyModel extends Model
 {
     protected $table = 'files'; // Nama tabel di database
     protected $primaryKey = 'id';
-    protected $allowedFields = ['faculty', 'filename', 'file_path', 'created_at']; // Sesuaikan dengan kolom tabel
+    protected $allowedFields = ['faculty', 'filename', 'file_path', 'created_at' ]; // Sesuaikan dengan kolom tabel
 
     // Fungsi untuk mengambil file berdasarkan fakultas
     public function getFilesByFaculty($faculty)

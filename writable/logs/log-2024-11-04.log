@@ -983,3 +983,1651 @@ INFO - 2024-11-04 04:08:51 --> User accessed file manager index page
 INFO - 2024-11-04 04:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-04 04:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-04 04:08:56 --> User accessed file manager index page
+INFO - 2024-11-04 06:51:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 06:53:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 06:53:41 --> User accessed file manager index page
+INFO - 2024-11-04 06:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 06:53:53 --> User accessed file manager index page
+INFO - 2024-11-04 06:53:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 06:53:57 --> mysqli_sql_exception: Unknown column 'faculty' in 'where clause' in C:\xampp\htdocs\LAGI-main\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-main\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\LAGI-main\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\LAGI-main\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\LAGI-main\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-main\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-main\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\LAGI-main\app\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\LAGI-main\app\Controllers\FileManagerController.php(132): App\Models\FileModel->searchFiles('FE')
+#8 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#9 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#10 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\LAGI-main\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\LAGI-main\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\LAGI-main\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\LAGI-main\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-04 06:53:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'faculty' in 'where clause'
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\FileManagerController.php(132): App\Models\FileModel->searchFiles('FE')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+CRITICAL - 2024-11-04 06:53:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'faculty' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\FileManagerController.php(132): App\Models\FileModel->searchFiles('FE')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+CRITICAL - 2024-11-04 06:53:57 --> [Caused by] mysqli_sql_exception: Unknown column 'faculty' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\FileManagerController.php(132): App\Models\FileModel->searchFiles('FE')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+INFO - 2024-11-04 06:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 06:54:02 --> User accessed file manager index page
+INFO - 2024-11-04 06:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 06:55:06 --> User accessed file manager index page
+INFO - 2024-11-04 06:55:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 06:55:10 --> mysqli_sql_exception: Unknown column 'faculty' in 'where clause' in C:\xampp\htdocs\LAGI-main\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-main\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\LAGI-main\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\LAGI-main\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\LAGI-main\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-main\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-main\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\LAGI-main\app\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\LAGI-main\app\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+#8 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#9 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#10 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\LAGI-main\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\LAGI-main\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\LAGI-main\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\LAGI-main\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-04 06:55:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'faculty' in 'where clause'
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+CRITICAL - 2024-11-04 06:55:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'faculty' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+CRITICAL - 2024-11-04 06:55:10 --> [Caused by] mysqli_sql_exception: Unknown column 'faculty' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+INFO - 2024-11-04 06:55:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 06:55:13 --> User accessed file manager index page
+INFO - 2024-11-04 06:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 06:55:19 --> mysqli_sql_exception: Unknown column 'faculty' in 'where clause' in C:\xampp\htdocs\LAGI-main\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-main\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\LAGI-main\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\LAGI-main\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\LAGI-main\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-main\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-main\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\LAGI-main\app\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\LAGI-main\app\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+#8 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#9 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#10 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\LAGI-main\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\LAGI-main\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\LAGI-main\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\LAGI-main\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-04 06:55:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'faculty' in 'where clause'
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+CRITICAL - 2024-11-04 06:55:19 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'faculty' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+CRITICAL - 2024-11-04 06:55:19 --> [Caused by] mysqli_sql_exception: Unknown column 'faculty' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+INFO - 2024-11-04 06:55:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 06:55:23 --> User accessed file manager index page
+INFO - 2024-11-04 06:55:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 06:55:32 --> mysqli_sql_exception: Unknown column 'faculty' in 'where clause' in C:\xampp\htdocs\LAGI-main\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-main\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\LAGI-main\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\LAGI-main\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\LAGI-main\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-main\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-main\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\LAGI-main\app\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\LAGI-main\app\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+#8 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#9 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#10 C:\xampp\htdocs\LAGI-main\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\LAGI-main\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\LAGI-main\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\LAGI-main\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\LAGI-main\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-04 06:55:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'faculty' in 'where clause'
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+CRITICAL - 2024-11-04 06:55:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'faculty' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+CRITICAL - 2024-11-04 06:55:32 --> [Caused by] mysqli_sql_exception: Unknown column 'faculty' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-main\\public\\index.php')
+INFO - 2024-11-04 07:35:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:35:34 --> User accessed file manager index page
+INFO - 2024-11-04 07:35:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:35:40 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:36:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:36:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:36:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:37:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:37:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:37:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:37:35 --> User accessed file manager index page
+INFO - 2024-11-04 07:37:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:37:36 --> User accessed file manager index page
+INFO - 2024-11-04 07:37:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:38:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:44:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:44:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:44:59 --> User accessed file manager index page
+INFO - 2024-11-04 07:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:45:00 --> User accessed file manager index page
+INFO - 2024-11-04 07:45:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:45:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:45:16 --> User accessed file manager index page
+INFO - 2024-11-04 07:45:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:45:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:45:23 --> User accessed file manager index page
+INFO - 2024-11-04 07:45:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:45:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:45:30 --> User accessed file manager index page
+INFO - 2024-11-04 07:47:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:47:03 --> User accessed file manager index page
+INFO - 2024-11-04 07:47:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:47:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:47:19 --> User accessed file manager index page
+INFO - 2024-11-04 07:47:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:47:25 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:48:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:48:38 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:48:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:48:40 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:48:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:48:42 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:48:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 07:48:43 --> User accessed file manager index page
+INFO - 2024-11-04 07:48:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:48:48 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:52:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:52:23 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:52:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:52:24 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:52:25 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:52:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:52:26 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:52:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:52:27 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:59:22 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 67.
+ 1 APPPATH\Views\file_manager\search_results.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 67)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 07:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 07:59:25 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 67.
+ 1 APPPATH\Views\file_manager\search_results.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 67)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 08:00:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:00:01 --> User accessed file manager index page
+INFO - 2024-11-04 08:00:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 08:00:03 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 67.
+ 1 APPPATH\Views\file_manager\search_results.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 67)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 08:00:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:00:04 --> User accessed file manager index page
+INFO - 2024-11-04 08:00:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:00:05 --> User accessed file manager index page
+INFO - 2024-11-04 08:00:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:00:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:00:11 --> User accessed file manager index page
+INFO - 2024-11-04 08:00:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:00:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:00:17 --> User accessed file manager index page
+INFO - 2024-11-04 08:03:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:03:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:03:32 --> User accessed file manager index page
+INFO - 2024-11-04 08:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 08:03:33 --> User accessed file manager index page
+INFO - 2024-11-04 08:03:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 08:03:37 --> mysqli_sql_exception: Unknown column 'filename' in 'where clause' in C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-LAGI\app\Models\FileModel.php(33): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-LAGI\app\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+#6 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#7 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#8 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\LAGI-LAGI\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp\htdocs\LAGI-LAGI\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2024-11-04 08:03:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'filename' in 'where clause'
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE   (
+`filename` LIKE :filename: ESCAPE \'!\'
+OR  `file_path` LIKE :file_path: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'
+ )', [...], false)
+ 2 APPPATH\Models\FileModel.php(33): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+CRITICAL - 2024-11-04 08:03:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'filename' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE   (
+`filename` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `file_path` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'
+ )')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE   (
+`filename` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `file_path` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'
+ )')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE   (
+`filename` LIKE :filename: ESCAPE \'!\'
+OR  `file_path` LIKE :file_path: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'
+ )', [...], false)
+ 4 APPPATH\Models\FileModel.php(33): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+CRITICAL - 2024-11-04 08:03:37 --> [Caused by] mysqli_sql_exception: Unknown column 'filename' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `uploaded_files`
+WHERE   (
+`filename` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `file_path` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'
+ )', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `uploaded_files`
+WHERE   (
+`filename` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `file_path` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'
+ )')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `uploaded_files`
+WHERE   (
+`filename` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `file_path` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'
+ )')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE   (
+`filename` LIKE :filename: ESCAPE \'!\'
+OR  `file_path` LIKE :file_path: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'
+ )', [...], false)
+ 5 APPPATH\Models\FileModel.php(33): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 08:07:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 08:07:29 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 08:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 08:07:30 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 14:48:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 14:48:52 --> User accessed file manager index page
+INFO - 2024-11-04 14:48:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 14:49:02 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'file_manager_ut', 3306, '', 0)
+#1 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-LAGI\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-LAGI\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\LAGI-LAGI\app\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\LAGI-LAGI\app\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+#8 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#9 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#10 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\LAGI-LAGI\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\LAGI-LAGI\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\LAGI-LAGI\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\LAGI-LAGI\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp\htdocs\LAGI-LAGI\app\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp\htdocs\LAGI-LAGI\app\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+#7 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#8 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#9 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\LAGI-LAGI\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\LAGI-LAGI\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-04 14:49:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `uploaded_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 3 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 14:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 14:49:28 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'file_manager_ut', 3306, '', 0)
+#1 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-LAGI\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-LAGI\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\LAGI-LAGI\app\Models\AdminModel.php(15): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\LAGI-LAGI\app\Controllers\AdminController.php(28): App\Models\AdminModel->getAdminByUsername('admin')
+#8 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(933): App\Controllers\AdminController->authenticate()
+#9 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#10 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\LAGI-LAGI\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\LAGI-LAGI\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\LAGI-LAGI\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\LAGI-LAGI\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\LAGI-LAGI\app\Models\AdminModel.php(15): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\LAGI-LAGI\app\Controllers\AdminController.php(28): App\Models\AdminModel->getAdminByUsername('admin')
+#7 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(933): App\Controllers\AdminController->authenticate()
+#8 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\LAGI-LAGI\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\LAGI-LAGI\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-04 14:49:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: POST, Route: admin/authenticate]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `admin`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\AdminModel.php(15): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\AdminController.php(28): App\Models\AdminModel->getAdminByUsername('admin')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->authenticate()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 14:50:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 14:50:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 14:50:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 14:50:46 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 15:16:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 15:16:15 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 15:16:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 15:16:21 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 15:16:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 15:16:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 15:16:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 15:16:53 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 15:16:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 15:16:55 --> User accessed file manager index page
+INFO - 2024-11-04 15:16:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 15:16:56 --> User accessed file manager index page
+INFO - 2024-11-04 15:17:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:09:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:09:24 --> User accessed file manager index page
+INFO - 2024-11-04 16:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 16:09:30 --> ErrorException: Undefined variable $results
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 68.
+ 1 APPPATH\Views\file_manager\search_results.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $results', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 68)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 16:10:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 16:10:22 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 16:42:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:42:32 --> User accessed file manager index page
+INFO - 2024-11-04 16:42:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 16:42:39 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(132): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 16:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:42:42 --> User accessed file manager index page
+INFO - 2024-11-04 16:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:42:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:42:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:43:37 --> User accessed file manager index page
+INFO - 2024-11-04 16:43:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:44:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:44:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:44:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:47:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:51:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:51:53 --> User accessed file manager index page
+INFO - 2024-11-04 16:51:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:51:54 --> User accessed file manager index page
+INFO - 2024-11-04 16:51:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:52:15 --> User accessed file manager index page
+INFO - 2024-11-04 16:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:52:25 --> User accessed file manager index page
+INFO - 2024-11-04 16:53:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:53:04 --> User accessed file manager index page
+INFO - 2024-11-04 16:53:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:53:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:53:12 --> User accessed file manager index page
+INFO - 2024-11-04 16:53:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:53:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 16:53:21 --> User accessed file manager index page
+INFO - 2024-11-04 17:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:02:23 --> User accessed file manager index page
+INFO - 2024-11-04 17:02:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:02:31 --> User accessed file manager index page
+INFO - 2024-11-04 17:03:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:03:36 --> User accessed file manager index page
+INFO - 2024-11-04 17:03:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:08:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:08:16 --> Search Results: Array
+(
+    [0] => Array
+        (
+            [id] => 46
+            [faculty] => FE
+            [filename] => kun_1.jpeg
+            [file_path] => uploads/FE/kun_1.jpeg
+            [created_at] => 2024-11-04 15:41:34
+        )
+
+)
+
+INFO - 2024-11-04 17:08:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:09:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:11:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 17:11:44 --> mysqli_sql_exception: Unknown column 'file_name' in 'where clause' in C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-LAGI\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-LAGI\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\LAGI-LAGI\app\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\LAGI-LAGI\app\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+#8 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#9 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#10 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\LAGI-LAGI\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\LAGI-LAGI\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-04 17:11:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_name' in 'where clause'
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+CRITICAL - 2024-11-04 17:11:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+CRITICAL - 2024-11-04 17:11:44 --> [Caused by] mysqli_sql_exception: Unknown column 'file_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'
+OR  `faculty` LIKE \'%FE%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'
+OR  `faculty` LIKE :faculty: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\FileModel.php(28): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\FileManagerController.php(129): App\Models\FileModel->searchFiles('FE')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 17:13:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 17:13:12 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(131): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 17:13:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 17:13:16 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(131): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 17:13:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 17:13:17 --> ErrorException: Undefined array key "filename"
+[Method: GET, Route: filemanager/search]
+in APPPATH\Views\file_manager\search_results.php on line 70.
+ 1 APPPATH\Views\file_manager\search_results.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php', 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\search_results.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/search_results', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(131): view('file_manager/search_results', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 17:13:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:17:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:17:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:17:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:17:16 --> User accessed file manager index page
+INFO - 2024-11-04 17:17:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:17:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:17:27 --> User accessed file manager index page
+INFO - 2024-11-04 17:17:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:17:29 --> User accessed file manager index page
+INFO - 2024-11-04 17:21:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:21:54 --> User accessed file manager index page
+INFO - 2024-11-04 17:22:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:22:02 --> User accessed file manager index page
+INFO - 2024-11-04 17:29:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:29:32 --> User accessed file manager index page
+INFO - 2024-11-04 17:29:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:31:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:31:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:31:23 --> User accessed file manager index page
+INFO - 2024-11-04 17:34:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:34:33 --> User accessed file manager index page
+INFO - 2024-11-04 17:34:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:34:38 --> Searching for: fps
+INFO - 2024-11-04 17:34:38 --> Found files: []
+INFO - 2024-11-04 17:34:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:34:43 --> User accessed file manager index page
+INFO - 2024-11-04 17:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:36:13 --> User accessed file manager index page
+INFO - 2024-11-04 17:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:36:20 --> Searching for: FE
+INFO - 2024-11-04 17:36:20 --> Found files: []
+INFO - 2024-11-04 17:36:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:36:24 --> User accessed file manager index page
+INFO - 2024-11-04 17:38:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:38:16 --> User accessed file manager index page
+INFO - 2024-11-04 17:38:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:38:21 --> Searching for: FE
+INFO - 2024-11-04 17:38:21 --> Found files: []
+INFO - 2024-11-04 17:38:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:38:24 --> User accessed file manager index page
+INFO - 2024-11-04 17:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:40:03 --> User accessed file manager index page
+INFO - 2024-11-04 17:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:50:15 --> User accessed file manager index page
+INFO - 2024-11-04 17:50:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:53:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:53:18 --> User accessed file manager index page
+INFO - 2024-11-04 17:53:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:53:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:53:29 --> User accessed file manager index page
+INFO - 2024-11-04 17:56:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 17:56:17 --> User accessed file manager index page
+INFO - 2024-11-04 17:56:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:48:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:48:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:48:31 --> User accessed file manager index page
+INFO - 2024-11-04 18:48:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:48:56 --> User accessed file manager index page
+INFO - 2024-11-04 18:49:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:49:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:49:06 --> User accessed file manager index page
+INFO - 2024-11-04 18:49:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:49:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:49:18 --> User accessed file manager index page
+INFO - 2024-11-04 18:49:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:49:32 --> User accessed file manager index page
+INFO - 2024-11-04 18:54:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:54:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:54:25 --> User accessed file manager index page
+INFO - 2024-11-04 18:54:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:54:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 18:54:38 --> User accessed file manager index page
+INFO - 2024-11-04 19:51:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 19:51:53 --> User accessed file manager index page
+CRITICAL - 2024-11-04 19:51:53 --> ErrorException: Undefined variable $fakultas
+[Method: GET, Route: filemanager]
+in APPPATH\Views\file_manager\index.php on line 47.
+ 1 APPPATH\Views\file_manager\index.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $fakultas', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php', 47)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/index', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(36): view('file_manager/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 19:58:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 19:58:25 --> User accessed file manager index page
+CRITICAL - 2024-11-04 19:58:25 --> ErrorException: Undefined variable $fakultas
+[Method: GET, Route: /]
+in APPPATH\Views\file_manager\index.php on line 47.
+ 1 APPPATH\Views\file_manager\index.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $fakultas', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php', 47)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/index', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(36): view('file_manager/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 19:58:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 19:58:26 --> User accessed file manager index page
+CRITICAL - 2024-11-04 19:58:26 --> ErrorException: Undefined variable $fakultas
+[Method: GET, Route: /]
+in APPPATH\Views\file_manager\index.php on line 47.
+ 1 APPPATH\Views\file_manager\index.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $fakultas', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php', 47)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/index', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(36): view('file_manager/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 20:01:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:01:06 --> User accessed file manager index page
+INFO - 2024-11-04 20:01:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 20:01:21 --> BadMethodCallException: Call to undefined method App\Models\JurusanFilesModel::searchFiles
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\FileManagerController.php(75): CodeIgniter\Model->__call('searchFiles', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 20:01:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:01:50 --> User accessed file manager index page
+INFO - 2024-11-04 20:02:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 20:02:06 --> BadMethodCallException: Call to undefined method App\Models\JurusanFilesModel::searchFiles
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\FileManagerController.php(75): CodeIgniter\Model->__call('searchFiles', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 20:05:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:06:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:06:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 20:06:35 --> mysqli_sql_exception: Unknown column 'file_name' in 'where clause' in C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-LAGI\app\Models\JurusanFilesModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-LAGI\app\Controllers\FileManagerController.php(75): App\Models\JurusanFilesModel->searchFiles('FHISIP', NULL, NULL)
+#6 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#7 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#8 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\LAGI-LAGI\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp\htdocs\LAGI-LAGI\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2024-11-04 20:06:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_name' in 'where clause'
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'', [...], false)
+ 2 APPPATH\Models\JurusanFilesModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\FileManagerController.php(75): App\Models\JurusanFilesModel->searchFiles('FHISIP', null, null)
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+CRITICAL - 2024-11-04 20:06:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FHISIP%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FHISIP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'', [...], false)
+ 4 APPPATH\Models\JurusanFilesModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\FileManagerController.php(75): App\Models\JurusanFilesModel->searchFiles('FHISIP', null, null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+CRITICAL - 2024-11-04 20:06:35 --> [Caused by] mysqli_sql_exception: Unknown column 'file_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FHISIP%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FHISIP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FHISIP%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'', [...], false)
+ 5 APPPATH\Models\JurusanFilesModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\FileManagerController.php(75): App\Models\JurusanFilesModel->searchFiles('FHISIP', null, null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 20:06:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:06:41 --> User accessed file manager index page
+INFO - 2024-11-04 20:06:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:06:44 --> User accessed file manager index page
+INFO - 2024-11-04 20:06:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 20:06:51 --> mysqli_sql_exception: Unknown column 'file_name' in 'where clause' in C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\LAGI-LAGI\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\LAGI-LAGI\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\LAGI-LAGI\app\Models\JurusanFilesModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\LAGI-LAGI\app\Controllers\FileManagerController.php(75): App\Models\JurusanFilesModel->searchFiles('FE', NULL, NULL)
+#6 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+#7 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+#8 C:\xampp\htdocs\LAGI-LAGI\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\LAGI-LAGI\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\LAGI-LAGI\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp\htdocs\LAGI-LAGI\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2024-11-04 20:06:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_name' in 'where clause'
+[Method: GET, Route: filemanager/search]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'', [...], false)
+ 2 APPPATH\Models\JurusanFilesModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\FileManagerController.php(75): App\Models\JurusanFilesModel->searchFiles('FE', null, null)
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+CRITICAL - 2024-11-04 20:06:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'', [...], false)
+ 4 APPPATH\Models\JurusanFilesModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\FileManagerController.php(75): App\Models\JurusanFilesModel->searchFiles('FE', null, null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+CRITICAL - 2024-11-04 20:06:51 --> [Caused by] mysqli_sql_exception: Unknown column 'file_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE \'%FE%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jurusan_files`
+WHERE `file_name` LIKE :file_name: ESCAPE \'!\'', [...], false)
+ 5 APPPATH\Models\JurusanFilesModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\FileManagerController.php(75): App\Models\JurusanFilesModel->searchFiles('FE', null, null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->search()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 20:15:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:15:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:15:21 --> User accessed file manager index page
+INFO - 2024-11-04 20:15:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:15:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:15:55 --> User accessed file manager index page
+INFO - 2024-11-04 20:16:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:16:18 --> User accessed file manager index page
+INFO - 2024-11-04 20:16:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:16:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:16:28 --> User accessed file manager index page
+INFO - 2024-11-04 20:17:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:17:51 --> User accessed file manager index page
+CRITICAL - 2024-11-04 20:17:51 --> ErrorException: Undefined variable $fakultas
+[Method: GET, Route: filemanager]
+in APPPATH\Views\file_manager\index.php on line 47.
+ 1 APPPATH\Views\file_manager\index.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $fakultas', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php', 47)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/index', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(32): view('file_manager/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 20:18:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:18:54 --> User accessed file manager index page
+CRITICAL - 2024-11-04 20:18:54 --> ErrorException: Undefined variable $fakultas
+[Method: GET, Route: filemanager]
+in APPPATH\Views\file_manager\index.php on line 47.
+ 1 APPPATH\Views\file_manager\index.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $fakultas', 'C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php', 47)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\LAGI-LAGI\\app\\Views\\file_manager\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_manager/index', [], true)
+ 5 APPPATH\Controllers\FileManagerController.php(32): view('file_manager/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileManagerController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManagerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\LAGI-LAGI\\public\\index.php')
+INFO - 2024-11-04 20:19:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:19:47 --> User accessed file manager index page
+INFO - 2024-11-04 20:19:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:19:53 --> Searching for: FE
+INFO - 2024-11-04 20:19:53 --> Found files: []
+INFO - 2024-11-04 20:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:19:56 --> User accessed file manager index page
+INFO - 2024-11-04 20:19:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:20:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:20:03 --> User accessed file manager index page
+INFO - 2024-11-04 20:20:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:20:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:20:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:20:22 --> User accessed file manager index page
+INFO - 2024-11-04 20:25:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:25:30 --> User accessed file manager index page
+INFO - 2024-11-04 20:25:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:27:16 --> User accessed file manager index page
+INFO - 2024-11-04 20:27:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:27:20 --> User accessed file manager index page
+INFO - 2024-11-04 20:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:27:27 --> Searching for: pps
+INFO - 2024-11-04 20:27:27 --> Found files: []
+INFO - 2024-11-04 20:27:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:27:32 --> User accessed file manager index page
+INFO - 2024-11-04 20:34:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:36:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:37:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:37:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:37:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:38:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:45:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:45:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:45:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:46:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:46:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:46:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:46:32 --> Searching for: FE
+INFO - 2024-11-04 20:46:32 --> Found files: []
+INFO - 2024-11-04 20:46:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:46:36 --> User accessed file manager index page
+INFO - 2024-11-04 20:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:46:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 20:46:46 --> User accessed file manager index page
+INFO - 2024-11-04 20:46:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
