@@ -17,12 +17,11 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->fileModel = new FileModel(); // Inisialisasi model FileModel
-        $this->adminModel = new AdminModel(); // Inisialisasi model AdminModel
-        $this->facultyModel = new FacultyModel(); // Inisialisasi model FacultyModel
-        $this->departmentModel = new DepartmentModel(); // Inisialisasi model DepartmentModel
+        $this->fileModel = new FileModel(); 
+        $this->adminModel = new AdminModel(); 
+        $this->facultyModel = new FacultyModel(); 
+        $this->departmentModel = new DepartmentModel(); 
 
-        // Cek apakah admin sudah login
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/admin/login');
         }
@@ -42,7 +41,7 @@ class AdminController extends Controller
 
         if ($admin && password_verify($password, $admin['password'])) {
             session()->set(['isLoggedIn' => true, 'username' => $username]);
-            return redirect()->to('/admin/dashboard'); // Arahkan ke dashboard
+            return redirect()->to('/admin/dashboard'); 
         }
 
         return redirect()->back()->with('error', 'Username atau password salah');
@@ -56,10 +55,9 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        // Ambil data fakultas dan jurusan
-        $data['faculties'] = $this->facultyModel->findAll(); // Ambil data fakultas
-        $data['departments'] = $this->departmentModel->findAll(); // Ambil data jurusan
-        $data['uploadedFiles'] = $this->fileModel->getUploadedFiles(); // Ambil data file yang sudah diupload
+        $data['faculties'] = $this->facultyModel->findAll(); 
+        $data['departments'] = $this->departmentModel->findAll(); 
+        $data['uploadedFiles'] = $this->fileModel->getUploadedFiles(); 
 
         return view('admin/dashboard', $data);
     }
@@ -67,24 +65,24 @@ class AdminController extends Controller
     public function uploadZip()
     {
         $file = $this->request->getFile('zip_file');
-        $faculty = $this->request->getPost('faculty');  // Mengambil fakultas yang dipilih
-        $department = $this->request->getPost('department');  // Mengambil jurusan yang dipilih
+        $faculty = $this->request->getPost('faculty');
+        $department = $this->request->getPost('department'); 
+
+        list($f1, $f2)=explode("#", $faculty);
 
         if ($file->isValid() && !$file->hasMoved()) {
             $fileName = $file->getName();
             $filePath = 'uploads/' . $fileName;
 
-            // Pindahkan file ke direktori uploads
             $file->move('uploads', $fileName);
 
-            // Simpan data file ke database
             $this->fileModel->insert([
-                'faculty' => $faculty,
-                'department' => $department,  // Menyimpan jurusan di database
+                'faculty' => $f2,
+                'department' => $department, 
                 'filename' => $fileName,
                 'file_path' => $filePath,
                 'file_type' => $file->getClientMimeType(),
-                'uploaded_at' => date('Y-m-d H:i:s')  // Memastikan tanggal upload ada
+                'uploaded_at' => date('Y-m-d H:i:s') 
             ]);
 
             session()->setFlashdata('message', 'File berhasil diupload.');
@@ -92,7 +90,7 @@ class AdminController extends Controller
             session()->setFlashdata('error', 'File tidak valid atau gagal diupload.');
         }
 
-        return redirect()->to('/admin/dashboard'); // Redirect ke halaman dashboard
+        return redirect()->to('/admin/dashboard');
     }
 
     public function deleteFile($id)
@@ -102,7 +100,7 @@ class AdminController extends Controller
         if ($file) {
             $this->fileModel->delete($id);
             if (file_exists($file['file_path'])) {
-                unlink($file['file_path']); // Hapus file dari server
+                unlink($file['file_path']);
             }
             return redirect()->to('/admin/dashboard')->with('message', 'File berhasil dihapus!');
         }
@@ -110,97 +108,152 @@ class AdminController extends Controller
         return redirect()->to('/admin/dashboard')->with('error', 'File tidak ditemukan.');
     }
 
-    // Menambahkan Fakultas
-    public function addFaculty()
+    public function manageFaculty()
     {
-        $validation = \Config\Services::validation();
+        $facultyModel = new FacultyModel();
+        $data['faculties'] = $facultyModel->findAll();
 
-        $validation->setRules([
-            'faculty_name' => 'required|min_length[3]|max_length[255]',
-        ]);
-
-        if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->to('/admin/dashboard')->withInput()->with('errors', $validation->getErrors());
-        }
-
-        // Jika validasi lulus, lanjutkan dengan menambahkan fakultas
-        $facultyName = $this->request->getPost('faculty_name');
-        $this->facultyModel->insert(['name' => $facultyName]);
-        session()->setFlashdata('message', 'Fakultas berhasil ditambahkan.');
-        return redirect()->to('/admin/dashboard');
+        return view('admin/manage_faculty', $data);
     }
 
-    public function addDepartment()
-    {
-        $validation = \Config\Services::validation();
+   public function addDepartmentForm()
+{
+    // Menampilkan form untuk menambahkan jurusan baru
+    $data['faculties'] = $this->facultyModel->findAll(); // Ambil daftar fakultas
+    return view('admin/add_department_form', $data);
+}
 
-        $validation->setRules([
-            'department_name' => 'required|min_length[3]|max_length[255]',
-            'faculty_id' => 'required|is_natural_no_zero',  // Pastikan ada fakultas yang dipilih
-        ]);
 
-        if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->to('/admin/dashboard')->withInput()->with('errors', $validation->getErrors());
-        }
+public function addDepartment()
+{
+    // Ambil data fakultas dan jurusan
+    $faculty_id = $this->request->getPost('faculty_id');
+    $department_name = $this->request->getPost('department_name');
 
-        // Jika validasi lulus, lanjutkan dengan menambahkan jurusan
-        $departmentName = $this->request->getPost('department_name');
-        $facultyId = $this->request->getPost('faculty_id'); // ID Fakultas yang dipilih
-
-        // Simpan data jurusan di database
-        $this->departmentModel->insert([
-            'name' => $departmentName,
-            'faculty_id' => $facultyId
-        ]);
-        session()->setFlashdata('message', 'Jurusan berhasil ditambahkan.');
-        return redirect()->to('/admin/dashboard');
+    // Validasi
+    if (empty($faculty_id) || empty($department_name)) {
+        return redirect()->back()->with('error', 'Data fakultas atau nama jurusan tidak boleh kosong.');
     }
 
-    public function editFaculty($id)
-    {
-        $faculty = $this->facultyModel->find($id);
-        if (!$faculty) {
-            session()->setFlashdata('message', 'Fakultas tidak ditemukan');
-            return redirect()->to('/admin/dashboard');
-        }
+    list($f2, $f1)=explode("#", $faculty_id);
 
-        // Kirim data fakultas ke view
-        return view('admin/edit_faculty', ['faculty' => $faculty]);
+    // Validasi apakah faculty_id benar ada di database
+    $faculty = $this->facultyModel->find($f2);
+    if (!$faculty) {
+        return redirect()->back()->with('error', 'Fakultas yang dipilih tidak ditemukan.');
     }
+	
+    $this->departmentModel->insert([
+        'name' => $f1,
+        'faculty_id' => $f2,
+        'department_name' => $department_name
+    ]);
+
+    // Redirect ke halaman fakultas setelah berhasil
+    //return redirect()->to("/admin/manageDepartments")->with('success', 'Jurusan berhasil ditambahkan!');
+    return redirect()->to("/admin/department")->with('success', 'Jurusan berhasil ditambahkan!');
+}
+
+public function manageDepartments()
+{
+    $departmentModel = new DepartmentModel();
+    $data['departments'] = $departmentModel->findAll();
+    
+    // Menambahkan fakultas terkait
+    foreach ($data['departments'] as &$department) {
+        $faculty = $this->facultyModel->find($department['faculty_id']);
+        $department['faculty_name'] = $faculty ? $faculty['name'] : 'Fakultas tidak ditemukan';
+    }
+
+    return view('admin/manage_departments', $data);
+}
+
+
 
     public function editDepartment($id)
     {
         $department = $this->departmentModel->find($id);
+
         if (!$department) {
-            session()->setFlashdata('message', 'Jurusan tidak ditemukan');
-            return redirect()->to('/admin/dashboard');
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Jurusan tidak ditemukan");
         }
 
-        // Kirim data jurusan ke view
-        return view('admin/edit_department', ['department' => $department]);
+        return view('admin/edit_department_form', ['department' => $department]);
     }
 
-    public function deleteFaculty($id)
+    public function updateDepartment($id)
     {
-        $faculty = $this->facultyModel->find($id);
-        if ($faculty) {
-            $this->facultyModel->delete($id);
-            session()->setFlashdata('message', 'Fakultas berhasil dihapus');
-        } else {
-            session()->setFlashdata('error', 'Fakultas tidak ditemukan');
+        if (!$this->validate([
+            'name' => 'required|min_length[3]',
+        ])) {
+            return redirect()->back()->withInput();
         }
-        return redirect()->to('/admin/dashboard');
+
+        $name = $this->request->getPost('name');
+        $this->departmentModel->update($id, ['department_name' => $name]);
+
+        #return redirect()->to('/admin/manage_departments')->with('message', 'Jurusan berhasil diperbarui');
+        return redirect()->to('/admin/department')->with('message', 'Jurusan berhasil diperbarui');
     }
 
     public function deleteDepartment($id)
     {
         $department = $this->departmentModel->find($id);
-        if ($department) {
-            $this->departmentModel->delete($id);
-            session()->setFlashdata('message', 'Jurusan berhasil dihapus');
-        } else {
-            session()->setFlashdata('error', 'Jurusan tidak ditemukan');
+
+        if (!$department) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Jurusan tidak ditemukan");
         }
-        return redirect()->to('/admin/dashboard');
+
+        $this->departmentModel->delete($id);
+
+       # return redirect()->to('/admin/manage_departments')->with('message', 'Jurusan berhasil dihapus');
+        return redirect()->to('/admin/department')->with('message', 'Jurusan berhasil dihapus');
     }
+
+    public function addFacultyForm()
+    {
+        return view('admin/add_faculty_form');
+    }
+
+    public function addFaculty()
+    {
+        $name = $this->request->getPost('name');
+        $this->facultyModel->save(['name' => $name]);
+        #return redirect()->to('/admin/manageFaculty')->with('message', 'Fakultas berhasil ditambahkan');
+        return redirect()->to('/admin/faculty')->with('message', 'Fakultas berhasil ditambahkan');
+    }
+
+    public function deleteFaculty($id)
+    {
+        if ($this->facultyModel->find($id)) {
+            $this->facultyModel->delete($id); 
+            #return redirect()->to('/admin/manageFaculty')->with('message', 'Fakultas berhasil dihapus');
+            return redirect()->to('/admin/faculty')->with('message', 'Fakultas berhasil dihapus');
+        } else {
+            #return redirect()->to('/admin/manageFaculty')->with('error', 'Fakultas tidak ditemukan');
+            return redirect()->to('/admin/faculty')->with('error', 'Fakultas tidak ditemukan');
+        }
+    }
+
+    public function editFaculty($id)
+    {
+        $faculty = $this->facultyModel->find($id);
+
+        if (!$faculty) {
+            #return redirect()->to('/admin/manageFaculty')->with('error', 'Fakultas tidak ditemukan');
+            return redirect()->to('/admin/faculty')->with('error', 'Fakultas tidak ditemukan');
+        }
+
+        return view('admin/edit_faculty', ['faculty' => $faculty]);
+    }
+
+    public function updateFaculty($id)
+    {
+        $name = $this->request->getPost('name');
+        $this->facultyModel->update($id, ['name' => $name]);
+
+        #return redirect()->to('/admin/manageFaculty')->with('message', 'Fakultas berhasil diperbarui');
+        return redirect()->to('/admin/faculty')->with('message', 'Fakultas berhasil diperbarui');
+    }
+    
 }

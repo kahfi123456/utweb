@@ -189,15 +189,30 @@
 
 
         <!-- Daftar Fakultas -->
+        <!-- Daftar Fakultas -->
         <h2>Pilih Fakultas</h2>
         <ul class="faculty-list">
-            <li><a href="<?= site_url('/filemanager/faculty/FE') ?>">FE</a></li>
-            <li><a href="<?= site_url('/filemanager/faculty/FHISIP') ?>">FHISIP</a></li>
-            <li><a href="<?= site_url('/filemanager/faculty/FKIP') ?>">FKIP</a></li>
-            <li><a href="<?= site_url('/filemanager/faculty/FST') ?>">FST</a></li>
-            <li><a href="<?= site_url('/filemanager/faculty/PPS') ?>">PPS</a></li>
+            <!-- Fakultas yang ditambahkan secara manual -->
 
+
+            <!-- Fakultas yang diambil dari database -->
+            <?php foreach ($faculties as $faculty): ?>
+            <li>
+                <a href="<?= site_url('/filemanager/faculty/' . $faculty['name']) ?>">
+                    <!-- Periksa apakah ada 'icon' sebelum mencoba menampilkannya -->
+                    <?php if (!empty($faculty['icon'])): ?>
+                    <img src="<?= base_url('uploads/icons/' . $faculty['icon']) ?>" alt="<?= $faculty['name'] ?> Icon">
+                    <?php else: ?>
+                    <!-- Gambar default jika icon tidak ada -->
+                    <img src="<?= base_url('uploads/icons/') ?>" alt=>
+                    <?php endif; ?>
+                    <?= $faculty['name'] ?>
+                </a>
+            </li>
+
+            <?php endforeach; ?>
         </ul>
+
     </div>
 
 </body>

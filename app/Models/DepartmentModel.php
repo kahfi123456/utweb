@@ -1,17 +1,11 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class DepartmentModel extends Model
 {
-    protected $table = 'departments';
+    protected $table = 'departments'; // Nama tabel
     protected $primaryKey = 'id';
-    protected $allowedFields = ['faculty_id', 'name'];
-
-    public function getDepartmentsByFaculty($facultyId)
-    {
-        return $this->where('faculty_id', $facultyId)->findAll();
-    }
-}
+    protected $allowedFields = ['name', 'faculty_id', 'department_name']; // Kolom yang dapat diisi
+}  

@@ -125,38 +125,35 @@
 
         <h2>Pilih Jurusan</h2>
         <div class="faculty-options">
-            <?php if ($faculty === 'FE'): ?>
-            <a href="<?= base_url('filemanager/faculty/FE/Manajemen'); ?>" class="faculty-button">Manajemen</a>
-            <a href="<?= base_url('filemanager/faculty/FE/Akuntansi'); ?>" class="faculty-button">Akuntansi</a>
-            <a href="<?= base_url('filemanager/faculty/FE/Ilmu Ekonomi'); ?>" class="faculty-button">Ilmu Ekonomi</a>
-            <?php elseif ($faculty === 'FHISIP'): ?>
-            <a href="<?= base_url('filemanager/faculty/FHISIP/Ilmu Politik'); ?>" class="faculty-button">Ilmu
-                Politik</a>
-            <a href="<?= base_url('filemanager/faculty/FHISIP/Sosiologi'); ?>" class="faculty-button">Sosiologi</a>
-            <a href="<?= base_url('filemanager/faculty/FHISIP/Psikologi'); ?>" class="faculty-button">Psikologi</a>
-            <?php elseif ($faculty === 'FKIP'): ?>
-            <a href="<?= base_url('filemanager/faculty/FKIP/Pendidikan Bahasa Inggris'); ?>"
-                class="faculty-button">Pendidikan Bahasa Inggris</a>
-            <a href="<?= base_url('filemanager/faculty/FKIP/Pendidikan Matematika'); ?>"
-                class="faculty-button">Pendidikan Matematika</a>
-            <a href="<?= base_url('filemanager/faculty/FKIP/Pendidikan Sejarah'); ?>" class="faculty-button">Pendidikan
-                Sejarah</a>
-            <?php elseif ($faculty === 'FST'): ?>
-            <a href="<?= base_url('filemanager/faculty/FST/Ilmu Komputer'); ?>" class="faculty-button">Ilmu Komputer</a>
-            <a href="<?= base_url('filemanager/faculty/FST/Matematika'); ?>" class="faculty-button">Matematika</a>
-            <a href="<?= base_url('filemanager/faculty/FST/Statistika'); ?>" class="faculty-button">Statistika</a>
-            <?php elseif ($faculty === 'PPS'): ?>
-            <a href="<?= base_url('filemanager/faculty/PPS/Ilmu Ekonomi Islam'); ?>" class="faculty-button">Ilmu Ekonomi
-                Islam</a>
-            <a href="<?= base_url('filemanager/faculty/PPS/Manajemen Syariah'); ?>" class="faculty-button">Manajemen
-                Syariah</a>
-            <a href="<?= base_url('filemanager/faculty/PPS/Perbankan Syariah'); ?>" class="faculty-button">Perbankan
-                Syariah</a>
-            <?php else: ?>
-            <p>Fakultas tidak ditemukan atau tidak valid.</p>
-            <?php endif; ?>
-        </div>
+            <?php if ($faculty === ''): ?>
 
+            <?php 
+				else: 
+					if(!empty($listdepartment)):
+						/*echo"<pre>";
+						print_r($listdepartment);
+						echo"</pre>";*/
+						
+						foreach($listdepartment as $lkey => $lvalue):
+							if($lvalue["name"]==$faculty):
+
+?>
+
+            <a href="<?= base_url('filemanager/faculty/'.$faculty.'/'.$lvalue["department_name"].''); ?>"
+                class="faculty-button"><?= $lvalue["department_name"]; ?></a>
+
+            <?php
+                        endif;	
+						endforeach;
+					else:
+			?>
+
+            <p>Fakultas tidak ditemukan atau tidak valid.</p>
+            <?php 
+					endif;
+				endif;
+			?>
+        </div>
 
         <h2>Daftar File untuk Jurusan <?= esc($faculty) ?> - <?= esc($department) ?></h2>
         <?php if (!empty($files)): ?>
@@ -169,21 +166,23 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                $no = 0;
+                ?>
                 <?php foreach ($files as $index => $file): ?>
                 <tr>
-                    <td><?= $index + 1; ?></td>
-                    <td><a href="<?= base_url($file['file_path']); ?>"
-                            target="_blank"><?= esc($file['filename']); ?></a></td>
-                    <td><a href="<?= base_url($file['file_path']); ?>" class="download-btn" download>Unduh ZIP</a></td>
+                    <td><?php echo $no=$no+1; ?></td>
+                    <td><?= esc($file['filename']) ?></td>
+                    <td><a href="<?= base_url($file['file_path']) ?>" class="download-btn" download>Unduh</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
         <?php else: ?>
-        <p>Tidak ada file untuk jurusan ini.</p>
+        <p>Belum ada file untuk jurusan ini.</p>
         <?php endif; ?>
 
-        <a href="<?= site_url('/filemanager') ?>" class="back-button">Kembali ke Halaman Utama</a>
+        <a href="<?= base_url() ?>" class="back-button">Kembali ke Beranda</a>
     </div>
 </body>
 

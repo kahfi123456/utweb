@@ -3,32 +3,35 @@
 namespace App\Controllers;
 
 use App\Models\FileModel;
+use App\Models\FacultyModel;
+use App\Models\DepartmentModel;
 
 class FileManagerController extends BaseController
 {
     protected $fileModel;
     protected $logger;
+    protected $facultyModel;
+    protected $departmentModel;
 
     public function __construct()
     {
-        $this->fileModel = new FileModel(); // Inisialisasi model
-        $this->logger = \Config\Services::logger(); // Inisialisasi logger
+        $this->fileModel = new FileModel();
+        $this->logger = \Config\Services::logger();
+        $this->facultyModel = new FacultyModel();
+        $this->departmentModel = new DepartmentModel();
     }
 
-    public function index()
+     public function index()
     {
-        // Mendapatkan data fakultas
-        $data['faculties'] = [
-            ['name' => 'FE', 'icon' => 'folder-icon.png'],
-            ['name' => 'FHISIP', 'icon' => 'folder-icon.png'],
-            ['name' => 'FKIP', 'icon' => 'folder-icon.png'],
-            ['name' => 'FST', 'icon' => 'folder-icon.png'],
-            ['name' => 'PPS', 'icon' => 'folder-icon.png'],
-        ];
+        // Membuat instance model
+        $facultyModel = new FacultyModel();
+
+        // Mengambil data fakultas dari database
+        $data['faculties'] = $facultyModel->findAll();  // Mengambil semua data fakultas
 
         $this->logger->info('User accessed file manager index page');
 
-        return view('file_manager/index', $data); // Menampilkan view index
+        return view('file_manager/index', $data);
     }
 
     public function download($id)
@@ -39,7 +42,7 @@ class FileManagerController extends BaseController
             return redirect()->to('/filemanager')->with('error', 'File tidak ditemukan.');
         }
 
-        $filePath = FCPATH . $file['file_path']; // Path file di server
+        $filePath = FCPATH . $file['file_path'];
 
         if (!file_exists($filePath)) {
             return redirect()->to('/filemanager')->with('error', 'File tidak ditemukan di server.');
@@ -78,7 +81,7 @@ class FileManagerController extends BaseController
         $filePath = FCPATH . $file['file_path'];
 
         if (file_exists($filePath)) {
-            unlink($filePath); // Hapus file dari server
+            unlink($filePath);
         }
 
         $this->fileModel->delete($id);
@@ -87,7 +90,7 @@ class FileManagerController extends BaseController
 
     public function upload()
     {
-        return view('file_manager/upload'); // Menampilkan view form upload
+        return view('file_manager/upload');
     }
 
     public function uploadFile()
@@ -98,68 +101,60 @@ class FileManagerController extends BaseController
         }
 
         $faculty = $this->request->getPost('faculty');
-        $department = $this->request->getPost('department'); // Ambil jurusan
+        $department = $this->request->getPost('department');
 
         if (!in_array($faculty, ['FE', 'FHISIP', 'FKIP', 'FST', 'PPS'])) {
             return redirect()->back()->with('error', 'Fakultas tidak valid.');
         }
 
         $newFileName = $file->getRandomName();
-        $file->move("uploads/$faculty/$department", $newFileName); // Simpan di folder fakultas/jurusan
+        $file->move("uploads/$faculty/$department", $newFileName);
 
         $data = [
             'faculty' => $faculty,
-            'department' => $department, // Simpan jurusan di database
+            'department' => $department,
             'file_name' => $newFileName,
             'file_path' => "uploads/$faculty/$department/$newFileName",
             'uploaded_at' => date('Y-m-d H:i:s')
         ];
 
-        $this->fileModel->insert($data); // Masukkan data ke tabel
+        $this->fileModel->insert($data);
         return redirect()->to('/filemanager')->with('message', 'File berhasil diupload.');
     }
 
-   public function search()
-{
-    $query = $this->request->getGet('query');
-    $department = $this->request->getGet('department');
-    $faculty = $this->request->getGet('faculty');
-    $model = new FileModel();
+    public function search()
+    {
+        $query = $this->request->getGet('query');
+        $department = $this->request->getGet('department');
+        $faculty = $this->request->getGet('faculty');
 
-    // Cek apakah ada input fakultas atau departemen
-    if ($faculty && $department) {
-        // Cari berdasarkan fakultas dan departemen
-        $results = $model->like('filename', $query)
-                         ->where('faculty', $faculty)
-                         ->where('department', $department)
-                         ->findAll();
-    } elseif ($faculty) {
-        // Jika hanya fakultas yang dipilih
-        $results = $model->like('filename', $query)
-                         ->where('faculty', $faculty)
-                         ->findAll();
-    } elseif ($department) {
-        // Jika hanya departemen yang dipilih
-        $results = $model->like('filename', $query)
-                         ->where('department', $department)
-                         ->findAll();
-    } else {
-        // Jika tidak ada fakultas atau departemen yang dipilih, cari berdasarkan query saja
-        $results = $model->like('filename', $query)
-                         ->orLike('faculty', $query)
-                         ->orLike('department', $query)
-                         ->findAll();
+        if ($faculty && $department) {
+            $results = $this->fileModel->like('filename', $query)
+                ->where('faculty', $faculty)
+                ->where('department', $department)
+                ->findAll();
+        } elseif ($faculty) {
+            $results = $this->fileModel->like('filename', $query)
+                ->where('faculty', $faculty)
+                ->findAll();
+        } elseif ($department) {
+            $results = $this->fileModel->like('filename', $query)
+                ->where('department', $department)
+                ->findAll();
+        } else {
+            $results = $this->fileModel->like('filename', $query)
+                ->orLike('faculty', $query)
+                ->orLike('department', $query)
+                ->findAll();
+        }
+
+        return view('file_manager/search_results', [
+            'results' => $results,
+            'query' => $query,
+            'faculty' => $faculty,
+            'department' => $department
+        ]);
     }
-
-    return view('file_manager/search_results', [
-        'results' => $results,
-        'query' => $query,
-        'faculty' => $faculty,
-        'department' => $department
-    ]);
-}
-
-
 
     public function createFolder($faculty)
     {
@@ -178,7 +173,7 @@ class FileManagerController extends BaseController
 
     public function course($facultyName, $courseName)
     {
-        $validFaculties = ['FE', 'FHISIP', 'FKIP', 'FST', 'PPS'];
+        $validFaculties = ['FE', 'FHISIP', 'FKIP', 'FST', 'PPS' ];
         if (!in_array($facultyName, $validFaculties)) {
             return redirect()->to('/filemanager')->with('error', 'Fakultas tidak valid.');
         }
@@ -194,54 +189,40 @@ class FileManagerController extends BaseController
         return view('file_manager/course', $data);
     }
 
-
-
     public function dashboard()
     {
-        $jurusanModel = new \App\Models\JurusanModel(); // Membuat instance model jurusan
-        $jurusanList = $jurusanModel->getAllJurusan(); // Mengambil semua jurusan
-
+        $jurusanList = $this->departmentModel->findAll();
         $data['jurusanList'] = $jurusanList;
         return view('admin/dashboard', $data);
     }
+
     public function faculty($faculty = null, $department = null)
     {
         $files = [];
 
-        // Pastikan fakultas dan jurusan valid
-        if ($faculty && $department) {
-            // Ambil file berdasarkan fakultas dan jurusan
+       if ($faculty && $department) {
             $files = $this->fileModel->where('faculty', $faculty)
                 ->where('department', $department)
                 ->findAll();
+        } elseif ($faculty) {
+            $files = $this->fileModel->where('faculty', $faculty)
+                ->findAll();
+        } elseif ($department) {
+            $files = $this->fileModel->where('department', $department)
+                ->findAll();
         }
+        
+		
+		$jurusanList = $this->departmentModel->findAll();
 
         return view('file_manager/faculty', [
             'faculty' => $faculty,
             'department' => $department,
+            'listdepartment' => $jurusanList,
             'files' => $files,
         ]);
     }
+    
 
-    public function showFiles($faculty, $department)
-    {
-        $files = [];
-        $validFaculties = ['FE', 'FHISIP', 'FKIP', 'FST', 'PPS'];
-
-        // Pastikan fakultas valid
-        if (!in_array($faculty, $validFaculties)) {
-            return redirect()->to('/filemanager')->with('error', 'Fakultas tidak valid.');
-        }
-
-        // Ambil file berdasarkan fakultas dan jurusan
-        $files = $this->fileModel->where('faculty', $faculty)
-            ->where('department', $department)
-            ->findAll();
-
-        return view('file_manager/faculty', [
-            'faculty' => $faculty,
-            'department' => $department,
-            'files' => $files,
-        ]);
-    }
+  
 }

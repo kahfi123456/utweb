@@ -182,8 +182,21 @@
             case "PPS":
                 departments = ["Ilmu Ekonomi Islam", "Manajemen Syariah", "Perbankan Syariah"];
                 break;
+            case "KDTN":
+                departments = ["sistem", "ilmu gizi", "gizi"];
+                break;
+
+
             default:
-                departments = [];
+                // departments = [];
+                const ar1 = faculty.split("#");
+                //alert(ar1[1]);
+
+                <?php $list_depart=""; foreach($departments as $dkey => $dvalue): ?>
+                if (ar1[0] == <?php echo $dvalue["faculty_id"]; ?>) {
+                    departments.push("<?php echo $dvalue["department_name"]; ?>");
+                }
+                <?php endforeach; ?>
         }
 
         departments.forEach(function(department) {
@@ -205,12 +218,12 @@
 
         <nav>
             <ul>
-                <li><a href="#">Manage Files</a></li>
-                <li><a href="#">View Logs</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="<?= site_url('admin/department'); ?>">Jurusan</a></li>
+                <li><a href="<?= site_url('admin/faculty'); ?>">Faculty</a></li>
                 <li><a href="<?= site_url('admin/logout'); ?>">Logout</a></li>
             </ul>
         </nav>
+
 
         <main>
             <h2>Manage Files</h2>
@@ -225,11 +238,12 @@
             <form action="<?= site_url('admin/uploadZip') ?>" method="post" enctype="multipart/form-data">
                 <label for="faculty">Fakultas:</label>
                 <select name="faculty" id="faculty" required onchange="updateDepartments()">
-                    <option value="FE">Fakultas Ekonomi</option>
-                    <option value="FHISIP">Fakultas Ilmu Sosial dan Ilmu Politik</option>
-                    <option value="FKIP">Fakultas Keguruan dan Ilmu Pendidikan</option>
-                    <option value="FST">Fakultas Sains dan Teknologi</option>
-                    <option value="PPS">Pascasarjana</option>
+
+                    <?php
+						foreach($faculties as $fkey => $fvalue):
+							echo"<option value='$fvalue[id]#$fvalue[name]'>$fvalue[name]</option>";
+						endforeach;
+					?>
                 </select>
 
                 <label for="department">Jurusan:</label>
@@ -272,76 +286,6 @@
                         <td colspan="4">Tidak ada file yang diupload.</td>
                     </tr>
                     <?php endif; ?>
-                </tbody>
-            </table>
-
-            <!-- Form untuk menambah Fakultas -->
-            <form action="<?= site_url('admin/addFaculty') ?>" method="post">
-                <label for="faculty_name">Nama Fakultas:</label>
-                <input type="text" name="faculty_name" id="faculty_name" required placeholder="Masukkan nama fakultas">
-
-                <button type="submit">Tambah Fakultas</button>
-            </form>
-
-            <!-- Form untuk menambah Jurusan -->
-            <form action="<?= site_url('admin/addDepartment') ?>" method="post">
-                <label for="department_name">Nama Jurusan:</label>
-                <input type="text" name="department_name" id="department_name" required
-                    placeholder="Masukkan nama jurusan">
-
-                <label for="faculty">Fakultas:</label>
-                <input type="text" name="faculty" id="faculty" required placeholder="Masukkan nama fakultas">
-
-                <button type="submit">Tambah Jurusan</button>
-            </form>
-
-            <h2>Daftar Fakultas</h2>
-            <!-- Daftar Fakultas yang sudah ada -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Fakultas</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($faculties as $index => $faculty): ?>
-                    <tr>
-                        <td><?= $index + 1 ?></td>
-                        <td><?= $faculty['name'] ?></td>
-                        <td class="action-buttons">
-                            <a href="<?= site_url('admin/editFaculty/' . $faculty['id']); ?>">Edit</a>
-                            <a href="<?= site_url('admin/deleteFaculty/' . $faculty['id']); ?>">Delete</a>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-
-            <h2>Daftar Jurusan</h2>
-            <!-- Daftar Jurusan yang sudah ada -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Jurusan</th>
-                        <th>Fakultas</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($departments as $index => $department): ?>
-                    <tr>
-                        <td><?= $index + 1 ?></td>
-                        <td><?= $department['name'] ?></td>
-                        <td><?= $department['faculty'] ?></td>
-                        <td class="action-buttons">
-                            <a href="<?= site_url('admin/editDepartment/' . $department['id']); ?>">Edit</a>
-                            <a href="<?= site_url('admin/deleteDepartment/' . $department['id']); ?>">Delete</a>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
                 </tbody>
             </table>
 

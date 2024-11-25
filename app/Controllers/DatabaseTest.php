@@ -9,7 +9,7 @@ class DatabaseTest extends Controller
     public function testColumn()
     {
         $db = \Config\Database::connect();
-        $fields = $db->getFieldData('filename'); // Ganti dengan nama tabel Anda
+        $fields = $db->getFieldData('departments'); // Ganti dengan nama tabel Anda
 
         foreach ($fields as $field) {
             echo $field->name . '<br>';
